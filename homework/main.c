@@ -7,6 +7,16 @@
 
 #include <stdio.h>
 
+int calculate_days(int local_budget, int local_num_people, int flight_price, float exchange_rate, int daily_cost) {
+    if (local_budget - (local_num_people*flight_price) <= 0) {
+        return -1;
+    }
+    local_budget = local_budget - (local_num_people*flight_price); //扣掉機票
+    local_budget *= exchange_rate; // 乘以匯率 換匯
+    int days = local_budget/(daily_cost*local_num_people); // 除以每日花費
+    
+    return days < 1 ? 0 : days;
+}
 int main(void) {
     
     int data_count, i;
@@ -43,77 +53,135 @@ int main(void) {
     struct TripGroup group[data_count];
     
     for (i=0; i<data_count; i++) {
-        printf("現在輸入的是第 %d 組的資料,", i+1);
+        printf("現在輸入的是第 %d 組的資料:", i+1);
         scanf("%d %d %d",
               &group[i].budget,
               &group[i].num_people,
               &group[i].capital);
     }
     
-    int local_flight_price, local_daily_cost;
-    float local_exchange_rate;
-    int local_budget, local_num_people, days;
+    int days;
     
     for (i=0; i<data_count; i++) {
         switch (group[i].capital) {
             case 0: //Tokyo
-                local_flight_price = cost_table[data_count].flight_price;
-                local_exchange_rate = cost_table[data_count].exchange_rate;
-                local_daily_cost = cost_table[data_count].daily_cost;
-                
-                local_budget = group[i].budget;
-                local_num_people = group[i].num_people;
-                
-                if (local_budget - (local_num_people*local_flight_price) <= 0) {
-                    printf("-1\n");
-                    continue;
-                }
-                
-                local_budget -= (local_num_people*local_flight_price); //扣掉機票
-                local_budget *= local_exchange_rate; // 乘以匯率 換匯
-                days = local_budget/(local_daily_cost*local_num_people); // 除以每日花費
-                
-                if (days < 1) {
-                    printf("0");
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
                 } else {
                     printf("%d", days);
                 }
+                
                 break;
             case 1: //Seoul
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
+                } else {
+                    printf("%d", days);
+                }
 
+                break;
             case 2: //Bangkok
-                <#statements#>
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
+                } else {
+                    printf("%d", days);
+                }
+
                 break;
 
             case 3: //London
-                <#statements#>
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
+                } else {
+                    printf("%d", days);
+                }
+
                 break;
 
             case 4: //Paris
-                <#statements#>
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
+                } else {
+                    printf("%d", days);
+                }
+
                 break;
 
             case 5: //New York
-                <#statements#>
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
+                } else {
+                    printf("%d", days);
+                }
+
                 break;
 
             case 6: //Sydney
-                <#statements#>
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
+                } else {
+                    printf("%d", days);
+                }
+
                 break;
 
             case 7: //Taipei
-                <#statements#>
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
+                } else {
+                    printf("%d", days);
+                }
+
                 break;
 
             default:
-                printf("-2\n");
-                continue;
+                printf("-2");
+                break;
         }
         if (i < data_count - 1) {
             printf(" ");
         }
     }
-    
-    
+    printf("\n");
     return 0;
 }
