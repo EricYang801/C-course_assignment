@@ -2,14 +2,14 @@
 //  main.c
 //  homework
 //
-//  Created by Eric Yang on 9/29/24.
+//  Created by Eric Yang.
 //
 
 #include <stdio.h>
 
 int calculate_days(int local_budget, int local_num_people, int flight_price, float exchange_rate, int daily_cost) {
     if (local_budget - (local_num_people*flight_price) <= 0) {
-        return -1;
+        return -1;  //若預算不夠支付所有人的機票，回傳 -1
     }
     local_budget = local_budget - (local_num_people*flight_price); //扣掉機票
     local_budget *= exchange_rate; // 乘以匯率 換匯
@@ -19,7 +19,7 @@ int calculate_days(int local_budget, int local_num_people, int flight_price, flo
 }
 int main(void) {
     
-    int data_count, i;
+    int data_count, i, days;
     
     struct TripGroup{
         int budget;
@@ -47,8 +47,11 @@ int main(void) {
     printf("請輸入資料數量: ");
     if (scanf("%d", &data_count) != 1 || data_count <= 0) {
          printf("輸入無效，請輸入一個正整數。\n");
-         return 1;  // 結束程式
+         return 1;
     }
+    
+    printf("請輸入每組資料(預算 人數 城市代碼):\n");
+    printf("城市代碼: 0.Tokyo 1.Seoul 2.Bangkok 3.London 4.Paris 5.New York 6.Sydney 7.Taipei\n");
     
     struct TripGroup group[data_count];
     
@@ -58,9 +61,12 @@ int main(void) {
               &group[i].budget,
               &group[i].num_people,
               &group[i].capital);
+        if (group[i].budget <= 0 || group[i].num_people <= 0 ) {
+            printf("輸入無效，請重新輸入。\n");
+            while (getchar() != '\n');  // 清除輸入緩衝區 ChatGPT生成的一行程式
+            i--;
+        }
     }
-    
-    int days;
     
     for (i=0; i<data_count; i++) {
         switch (group[i].capital) {
