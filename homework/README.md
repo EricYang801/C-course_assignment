@@ -70,11 +70,134 @@ int calculate_days(int local_budget, int local_num_people, int flight_price, flo
         return -1; //若預算不夠支付所有人的機票，回傳 -1
     }
     local_budget = local_budget - (local_num_people*flight_price); //扣掉機票
-    local_budget *= exchange_rate; // 乘以匯率 換匯
+    local_budget *= exchange_rate; //乘以匯率
     int days = local_budget/(daily_cost*local_num_people); // 除以每日花費
     
     return days < 1 ? 0 : days; //假如days<1天，回傳0，否則回傳days值
 }
 ```
 ### 主程式說明  
+**定義資料結構與費用對照表**
+```c
+    int data_count, i, days;
+    
+    struct TripGroup{
+        int budget;
+        int num_people;
+        int capital;
+    };
+    
+    struct TripCost {
+        int flight_price;
+        float exchange_rate;
+        int daily_cost;
+    };
+    
+    const struct TripCost cost_table[] = {
+        { 15000, 4, 15000},     // 0: Tokyo
+        { 10000, 40, 60000},    // 1: Seoul
+        { 12000, 1.1, 2000},    // 2: Bangkok
+        { 35000, 0.025, 200},   // 3: London
+        { 33000, 0.03, 180},    // 4: Paris
+        { 40000, 0.032, 220},   // 5: New York
+        { 32000, 0.048, 250},   // 6: Sydney
+        { 0, 1, 3000}           // 7: Taipei
+    };
+```
+**讓User輸入資料有幾組，並且檢測是否為正整數**
+```c
+    printf("請輸入資料數量: ");
+    if (scanf("%d", &data_count) != 1 || data_count <= 0) {
+         printf("輸入無效，請輸入一個正整數。\n");
+         return 1;
+    }
+    
+    struct TripGroup group[data_count];
+```
+**使用for迴圈，依序輸入進group的資料結構中**  
+**如果budget、num_people <= 0，那讓使用者重新輸入**
+```c
+    printf("請輸入每組資料(預算 人數 城市代碼):\n");
+    printf("城市代碼: 0.Tokyo 1.Seoul 2.Bangkok 3.London 4.Paris 5.New York 6.Sydney 7.Taipei\n");
+    
+    for (i=0; i<data_count; i++) {
+        printf("現在輸入的是第 %d 組的資料:", i+1);
+        scanf("%d %d %d",
+              &group[i].budget,
+              &group[i].num_people,
+              &group[i].capital);
+        if (group[i].budget <= 0 || group[i].num_people <= 0 ) {
+            printf("輸入無效，請重新輸入。\n");
+            while (getchar() != '\n');  // 清除輸入緩衝區 ChatGPT生成的一行程式
+            i--;
+        }
+    }
+```
+在此針對清空緩衝區這行指令做解釋    
+在C語言使用```scanf()```的時候會先把輸入的資料放到緩衝區，scanf() 進行輸入時，程式會逐一從緩衝區讀取字符。當 getchar() 讀取一個字符後，該字符會從緩衝區中移除，直到讀取到換行符號停止，因此我可以靠```getchar()```逐個讀取字符，來清空緩衝區。
+```c
+while (getchar() != '\n');
+```
+使用for迴圈，依序對每組資料做判斷   
+使用switch迴圈對```group[i].capital```值做城市的判別
+將以下五個值傳入```calculate_days()```函式
+```
+group[i].budget,
+group[i].num_people,
+cost_table[group[i].capital].flight_price,
+cost_table[group[i].capital].exchange_rate,
+cost_table[group[i].capital].daily_cost
+```
+當回傳的值 = -1時，print("-1")，因為此時預算不夠支付所有人的機票
+如果不是就print("計算出來的值")
+那如果i < data_count - 1，就代表現在不是最後一個，所以需要print空格把每組數據隔開
+```c
+    for (i=0; i<data_count; i++) {
+        switch (group[i].capital) {
+            case 0: //Tokyo
+                days = calculate_days(group[i].budget,
+                                      group[i].num_people,
+                                      cost_table[group[i].capital].flight_price,
+                                      cost_table[group[i].capital].exchange_rate,
+                                      cost_table[group[i].capital].daily_cost);
+                if (days == -1) {
+                    printf("-1");
+                } else {
+                    printf("%d", days);
+                }
+                
+                break;
+            case 1: //Seoul
+            //重複其他case
 
+            case 2: //Bangkok
+            //重複其他case
+
+            case 3: //London
+            //重複其他case
+            
+            case 4: //Paris
+            //重複其他case
+
+            case 5: //New York
+            //重複其他case
+
+            case 6: //Sydney
+            //重複其他case
+
+            case 7: //Taipei
+            //重複其他case
+
+            default:
+                printf("-2");
+                break;
+        }
+        if (i < data_count - 1) {
+            printf(" ");
+        }
+    }
+```
+## 網路資源
+查詢如何校驗為正整數 https://docs.pingcode.com/baike/1072705    
+學習結構體的編寫語法與結構 https://hackmd.io/@metal35x/H1VBKTnQL
+發現scanf()輸入的緩衝區問題 https://www.youtube.com/watch?v=my-0xCJNgoM 

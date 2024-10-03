@@ -50,10 +50,10 @@ int main(void) {
          return 1;
     }
     
+    struct TripGroup group[data_count];
+    
     printf("請輸入每組資料(預算 人數 城市代碼):\n");
     printf("城市代碼: 0.Tokyo 1.Seoul 2.Bangkok 3.London 4.Paris 5.New York 6.Sydney 7.Taipei\n");
-    
-    struct TripGroup group[data_count];
     
     for (i=0; i<data_count; i++) {
         printf("現在輸入的是第 %d 組的資料:", i+1);
