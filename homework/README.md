@@ -199,5 +199,5 @@ cost_table[group[i].capital].daily_cost
 ```
 ## 網路資源
 查詢如何校驗為正整數 https://docs.pingcode.com/baike/1072705    
-學習結構體的編寫語法與結構 https://hackmd.io/@metal35x/H1VBKTnQL 
+學習結構體的編寫語法與結構 https://hackmd.io/@metal35x/H1VBKTnQL  
 發現scanf()輸入的緩衝區問題 https://www.youtube.com/watch?v=my-0xCJNgoM 
