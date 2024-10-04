@@ -3,12 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
-
-/* Begin PBXBuildFile section */
-		F5F1FE9A2CA9560A00F42164 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F5F1FE992CA9560A00F42164 /* main.c */; };
-/* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F5F1FE942CA9560A00F42164 /* CopyFiles */ = {
@@ -23,10 +19,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F5E9B7C52CAA50DF00465922 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F5F1FE962CA9560A00F42164 /* homework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = homework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5F1FE992CA9560A00F42164 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		F5F1FE962CA9560A00F42164 /* homework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = homework; path = /Users/ericyang/Desktop/homework/build/Debug/homework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F5BB74972CAFE98400C6D558 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				main.c,
+			);
+			target = F5F1FE952CA9560A00F42164 /* homework */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F5BB74962CAFE97200C6D558 /* Assignment1  */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F5BB74972CAFE98400C6D558 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Assignment1 "; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F5F1FE932CA9560A00F42164 /* Frameworks */ = {
@@ -42,26 +50,8 @@
 		F5F1FE8D2CA9560A00F42164 = {
 			isa = PBXGroup;
 			children = (
-				F5F1FE982CA9560A00F42164 /* homework */,
-				F5F1FE972CA9560A00F42164 /* Products */,
+				F5BB74962CAFE97200C6D558 /* Assignment1  */,
 			);
-			sourceTree = "<group>";
-		};
-		F5F1FE972CA9560A00F42164 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F5F1FE962CA9560A00F42164 /* homework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F5F1FE982CA9560A00F42164 /* homework */ = {
-			isa = PBXGroup;
-			children = (
-				F5F1FE992CA9560A00F42164 /* main.c */,
-				F5E9B7C52CAA50DF00465922 /* README.md */,
-			);
-			path = homework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,7 +97,7 @@
 				Base,
 			);
 			mainGroup = F5F1FE8D2CA9560A00F42164;
-			productRefGroup = F5F1FE972CA9560A00F42164 /* Products */;
+			productRefGroup = F5F1FE8D2CA9560A00F42164;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -121,7 +111,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5F1FE9A2CA9560A00F42164 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
