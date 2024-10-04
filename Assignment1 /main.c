@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 int calculate_days(int local_budget, int local_num_people, int flight_price, float exchange_rate, int daily_cost) {
-    if (local_budget - (local_num_people*flight_price) <= 0) {
+    if (local_budget - (local_num_people*flight_price) < 0) {
         return -1;  //若預算不夠支付所有人的機票，回傳 -1
     }
     local_budget = local_budget - (local_num_people*flight_price); //扣掉機票
