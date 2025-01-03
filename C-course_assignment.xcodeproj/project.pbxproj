@@ -19,25 +19,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F546A4C62CC7C8B400481499 /* C-course_assignment */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "C-course_assignment"; path = "/Users/ericyang/Github/C-course_assignment/build/Debug/C-course_assignment"; sourceTree = "<absolute>"; };
+		F513350D2D2682EA00D8C34D /* C-course_assignment */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "C-course_assignment"; path = "/Users/ericyang/Github/C-course_assignment/build/Debug/C-course_assignment"; sourceTree = "<absolute>"; };
 		F546A4C92CC7C8B400481499 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		F546A4D42CC7C98300481499 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F53FBEEA2D0888C700B4596C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				main.c,
-			);
-			target = F546A4C52CC7C8B400481499 /* C-course_assignment */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F53FBEE62D0888A100B4596C /* Assignment4 */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F53FBEEA2D0888C700B4596C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Assignment4; sourceTree = "<group>"; };
+		F53FBEE62D0888A100B4596C /* Assignment4 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Assignment4; sourceTree = "<group>"; };
 		F546A4D12CC7C91300481499 /* Assignment2 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Assignment2; sourceTree = "<group>"; };
 		F58C49C22CEE05B30009EBCD /* Assignment3 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Assignment3; sourceTree = "<group>"; };
+		F5EA12DF2D21BB0900A5E808 /* Assignment5 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Assignment5; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +45,7 @@
 		F546A4BD2CC7C8B400481499 = {
 			isa = PBXGroup;
 			children = (
+				F5EA12DF2D21BB0900A5E808 /* Assignment5 */,
 				F58C49C22CEE05B30009EBCD /* Assignment3 */,
 				F546A4D12CC7C91300481499 /* Assignment2 */,
 				F546A4C82CC7C8B400481499 /* Assignment1 */,
@@ -85,9 +77,12 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				F5EA12DF2D21BB0900A5E808 /* Assignment5 */,
+			);
 			name = "C-course_assignment";
 			productName = "C-course_assignment";
-			productReference = F546A4C62CC7C8B400481499 /* C-course_assignment */;
+			productReference = F513350D2D2682EA00D8C34D /* C-course_assignment */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
